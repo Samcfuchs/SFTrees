@@ -4,5 +4,10 @@
 }
 
 svg {
-    background-color: #eee;
+    /*background-color: #eee;*/
+}
+
+div#content {
+    width:800px;
+    margin:auto;
 }
