@@ -18,7 +18,8 @@ let dateDiff = function(date1, date2) {
 }
 
 const requestData = async function() {
-    const sf = await d3.csv("Street_Tree_List-2022-01-30_FILTERED.csv")
+    let  sf = await d3.csv("Street_Tree_List-2022-01-30_FILTERED.csv")
+    let  sf_withyear = sf.filter(d => d.PlantDate != "")
     const context = await d3.json("SF-Neighborhoods.geo.json")
     const neighborhoods = topojson.feature(context, context.objects.SFNeighborhoods)
 
@@ -26,6 +27,7 @@ const requestData = async function() {
     var dateparser = d3.timeParse(datefmt)
 
     // parse dates
+    sf = sf_withyear
     let n = 0
     let now = new Date()
     sf.forEach(d => {
