@@ -169,11 +169,15 @@ const requestData = async function() {
         .attr('stroke', '#999');
     
     sf.forEach(function(d) { d.position = projection([d.Longitude, d.Latitude])})
+    let size_scale = d3.scaleLinear()
+        .domain(d3.extent(sf, d=>d.DBH))
+        .range([1,4])
+
 
     map.selectAll("circle.point").data(sf.filter(d => d.DBH >= size_cutoff))
         .join("circle")
         .attr("class", "point")
-        .attr('r', 3)
+        .attr('r', d => size_scale(d.DBH))
         .attr('fill', '#383')
         .attr('opacity', 0.9)
         .attr('cx', d => d.position[0])
