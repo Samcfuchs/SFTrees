@@ -4,7 +4,9 @@
     box-sizing: border-box;
 }
 
-g.label text { font-family: sans-serif; }
+g.label text { 
+    font-family: sans-serif; 
+}
 g.points circle { fill: #383 }
 
 path.line {
@@ -14,6 +16,10 @@ path.line {
 
 svg {
     background-color: #f9f9f9;
+}
+
+svg#map text {
+    font-family: sans-serif;
 }
 
 
@@ -40,7 +46,7 @@ svg#viz {
     display: inline;
 }
 
-svg#detail, svg#map {
+svg#detail {
     border: 1px solid black;
 }
 
@@ -50,6 +56,7 @@ div.container {
     flex-wrap: wrap;
     justify-content: center;
     align-items: flex-start;
+    margin-bottom: 40px;
 }
 
 div.left {

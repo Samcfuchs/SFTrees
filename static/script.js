@@ -146,7 +146,7 @@ const requestData = async function() {
 
     const context = await d3.json("SF-Neighborhoods.geo.json")
     const neighborhoods = topojson.feature(context, context.objects.SFNeighborhoods)
-    const size_cutoff = 40
+    const size_cutoff = 25
     // Map stuff
     var projection = d3.geoMercator().fitSize([map_width, map_height], neighborhoods)
     var path = d3.geoPath().projection(projection)
@@ -169,13 +169,16 @@ const requestData = async function() {
         .attr('cx', d => d.position[0])
         .attr('cy', d => d.position[1])
 
+    map.append('text').text('Trees with Diameter > ' + size_cutoff + 'cm')
+        .attr('x', 20)
+        .attr('y', 20)
+        .attr('text-anchor', 'left')
     
     // DETAIL STUFF
 
 
     let svg = d3.select('svg#detail')
-    new_size_cutoff = 25
-    let sf_f = sf.filter(d => d.DBH < new_size_cutoff)
+    let sf_f = sf.filter(d => d.DBH < size_cutoff)
     const d_margin = {bottom: 50, left: 60, top:20, right: 20}
     const d_width = svg.attr('width') - (d_margin.left + d_margin.right)
     const d_height = svg.attr('height') - (d_margin.top + d_margin.bottom)
@@ -185,7 +188,7 @@ const requestData = async function() {
         .domain(d3.extent(sf_f, d => d.age_months))
         .range([0, d_width])
     var y_scale = d3.scaleLinear()
-        .domain([0, new_size_cutoff])
+        .domain([0, size_cutoff])
         .range([d_height, 0])
     
     console.log("y range " + y_scale.domain())
