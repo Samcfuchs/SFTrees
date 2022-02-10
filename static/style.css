@@ -1,13 +1,64 @@
 * {
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-svg {
-    background-color: #eee;
+g.label text { font-family: sans-serif; }
+g.points circle { fill: #383 }
+
+path.line {
+    stroke:hsl(209, 60%, 34%);
+    stroke-width: 2px;
 }
 
+svg {
+    background-color: #f9f9f9;
+}
+
+
 div#content {
-    width:800px;
+    max-width:1200px;
     margin:auto;
+    margin-bottom: 40px;
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+h1 {
+    font-family: Lato;
+    margin-bottom: 20px
+}
+
+p {
+    font-family: 'Segoe UI', Helvetica;
+    margin-bottom: 20px;
+}
+
+svg#viz {
+    display: inline;
+}
+
+svg#detail, svg#map {
+    border: 1px solid black;
+}
+
+div.container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+div.left {
+    flex-shrink: 3;
+    width: 600px;
+}
+div.right {
+
+}
+div.right svg {
+    display: block;
 }

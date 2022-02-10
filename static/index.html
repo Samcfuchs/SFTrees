@@ -7,12 +7,30 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://d3js.org/topojson.v2.min.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <!--<link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">-->
 </head>
 <body>
     <div id='content'>
         <h1>San Francisco Trees</h1>
-        <svg id='viz' width=800 height=800></svg>
+        <p>
+            Many of the trees in the San Francisco Trees dataset have the date
+            of their planting recorded. For these trees, we can calculate almost
+            exactly their age. This allows us to examine the relationship
+            between tree age and size--essentially, the growth of trees over
+            time. While the data is of course noisy (the size of a tree at its
+            planting can vary wildly), we can clearly see a pattern when we
+            examine the mean diameter for trees planted in each year. This
+            visualization allows us to watch trees grow over time.
+        </p>
+        <div class='container'>
+            <div class="left">
+                <svg id='viz' width=600 height=800></svg>
+            </div>
+            <div class="right">
+                <svg id='map' width=400 height=400></svg>
+                <svg id='detail' width=400 height=400></svg>
+            </div>
         <script src='script.js'></script>
     </div>
 </body>
