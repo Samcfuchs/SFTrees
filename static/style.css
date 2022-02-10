@@ -46,6 +46,12 @@ svg#viz {
     display: inline;
 }
 
+line.guide {
+    stroke-dasharray: 4;
+
+    stroke: #888;
+}
+
 svg#detail {
     border: 1px solid black;
 }

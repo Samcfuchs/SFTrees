@@ -14,6 +14,7 @@ const map = d3.select('svg#map').append('g')
     .attr('transform', `translate(${map_margin.left}, ${map_margin.top})`);
 const map_width = d3.select('svg#map').attr('width') - (map_margin.left + map_margin.right)
 const map_height = d3.select('svg#map').attr('height') - (map_margin.top + map_margin.bottom)
+const size_cutoff = 25
 
 console.log(svg)
 
@@ -103,6 +104,16 @@ const requestData = async function() {
         .attr('text-anchor', 'middle')
         .attr('transform', `rotate(-90, ${x_scale(-4)},${m_height/2})`);
     
+
+    chart.append('line')
+        .attr('class', 'guide')
+        .attr('x1', x_scale(0))
+        .attr('x2', x_scale.range()[1])
+        .attr('y1', y_scale(size_cutoff))
+        .attr('y2', y_scale(size_cutoff))
+        .attr('stroke-width', 1)
+        .attr('stroke', '#000')
+
     // Overlay line plot
     const line_gen = d3.line()
         .x( d => x_scale_yrs(d.years) )
@@ -146,7 +157,6 @@ const requestData = async function() {
 
     const context = await d3.json("SF-Neighborhoods.geo.json")
     const neighborhoods = topojson.feature(context, context.objects.SFNeighborhoods)
-    const size_cutoff = 25
     // Map stuff
     var projection = d3.geoMercator().fitSize([map_width, map_height], neighborhoods)
     var path = d3.geoPath().projection(projection)
