@@ -45,7 +45,22 @@
             those trees are, perhaps so they see them when they are nearby.
         </p>
         <p>
-            
+            Finally, we show a detail view of the densest area of the
+            scatterplot, below 25-30 cm. This is important because in the first
+            visualization, the outliers make the pattern of trees growing with
+            age difficult to parse immediately. In this innset pattern, we
+            remove the subset of the data greater than some size_cutoff so that
+            the plot lies entirely within the range of (0,25]. Additionally, I
+            adjust the smoothing function applied to the average line so that
+            the random variation from year to year is less pronounced.
+        </p>
+        <p>
+            I chose to arrange these two detail plots on the right vertically so
+            that they correspond visually with the data subsets they represent.
+            I would like them to match the subset division line on the left
+            exactly, but I find that such a division is too imbalanced, and thisi
+            visual inbalance outweighs the slight visual load incurred by the
+            audience in making sense of this separation.
         </p>
         <script src='script.js'></script>
     </div>
